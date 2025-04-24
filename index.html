@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>Q4-Quiz1</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1><b>⋆˚࿔ bmi calculator 𝜗𝜚˚⋆</b></h1>
+    <hr>
+    <p>calculate your body mass index (bmi) and check where you are on WHO standards</p>
+    <p>instructions: enter your weight (kg) and height (m), then click "calculate bmi"</p>
+
+    <div>
+      <input type="number" id="weight" class="form-control" placeholder="weight in kg">
+      <br>
+      <input type="number" id="height" class="form-control" placeholder="height in meters">
+      <br>
+
+      <button type="button" class="btn btn-dark" onClick="calculateBMI()">calculate bmi</button>
+      <button type="button" class="btn btn-dark" onClick="window.location.reload()">refresh</button>
+    </div>
+
+    <footer>
+      <hr>
+      <p><a style="text-decoration: none; color: #343540" href="LINK"> &#169; ay 2025 | ICT 9 Ruby | QUIZ 1 | Yao </a></p>
+    </footer>
+  </div>
+
+  <script>
+    function calculateBMI() {
+      var weight = document.getElementById('weight').value;
+      var height = document.getElementById('height').value;
+
+      if (!weight || !height || height == 0) {
+        alert('Please enter valid weight and height!');
+        return;
+      }
+
+      var bmi = weight / (height * height);
+      bmi = bmi.toFixed(1);
+
+      if (bmi < 18.5) {
+        window.alert('your bmi is ' + bmi + ': underweight');
+      } else if (bmi >= 18.5 && bmi <= 24.9) {
+        window.alert('your bmi is ' + bmi + ': normal weight');
+      } else if (bmi >= 25 && bmi <= 29.9) {
+        window.alert('your bmi is ' + bmi + ': overweight');
+      } else {
+        window.alert('your bmi is ' + bmi + ': obese');
+      }
+    }
+  </script>
+</body>
+</html>
